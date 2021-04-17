@@ -1,9 +1,21 @@
 // 처음에 시작할 때 타입을 모르겠으면 any로 지정해준 후
 // 진행하면서 구체적인 타입을 지정해주는 방법이 좋다
-let todoItems: { id: number, title: string, done: boolean }[];
+
+// type Todo = {
+//   id: number;
+//   title: string;
+//   done: boolean;
+// };
+// 타입을 원하는대로 만들어줄 수 있다!
+interface Todo {
+  id: number;
+  title: string;
+  done: boolean;
+}
+let todoItems: Todo[];
 
 // api
-function fetchTodoItems(): { id: number, title: string, done: boolean }[] {
+function fetchTodoItems(): Todo[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -19,7 +31,7 @@ function fetchTodos(): object[] {
 }
 
 function addTodo(
-  todo: { id: number, title: string, done: boolean }
+  todo: Todo
   ): void { // return이 없는 함수에는 void로 지정해줌
   todoItems.push(todo);
 }
@@ -30,7 +42,7 @@ function deleteTodo(index: number): void {
 
 function completeTodo(
   index: number, 
-  todo: { id: number, title: string, done: boolean }
+  todo: Todo
   ):void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
