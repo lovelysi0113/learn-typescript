@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
-    "noImplicitAny": false
+    "noImplicitAny": true // 속성을 무조건 지정해줘야하는 옵션
   },
   "include": ["./src/**/*"]
 }
